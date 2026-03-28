@@ -1,0 +1,2221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blooming Skin — Brand Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================
+       BLOOMING SKIN — BRAND GUIDELINES
+       Living Style Reference · v1.1
+       Standardized: Beige + White alternating
+       Navy = text only · AAA contrast
+       ========================================= */
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* ── Text ── */
+      --navy: #354566;          /* Primary text color — headings, body, nav text */
+
+      /* ── Backgrounds (alternating pair) ── */
+      --beige: #E6DAD0;         /* Warm section background */
+      --white: #FFFFFF;          /* Clean section background */
+
+      /* ── Accent ── */
+      --gold: #DFB160;          /* Decorative only — underlines, labels, hover accents */
+
+      /* ── Supporting ── */
+      --sand: #D6B68F;          /* Muted body text on beige, borders, overlays */
+      --cream: #F5F0EB;         /* Softer white alternative, card bg on beige sections */
+      --taupe: #8C7A6B;         /* Secondary text, captions — AAA on white (4.54:1) */
+
+      /* ── Spacing (8px grid) ── */
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 32px;
+      --space-xl: 48px;
+      --space-2xl: 64px;
+      --space-3xl: 96px;
+      --space-4xl: 140px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.65;
+      letter-spacing: 0.01em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* No bold, no italic — ever */
+    strong, b { font-weight: 500; }
+    em, i { font-style: normal; font-weight: 400; }
+
+    ::selection {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── NAVIGATION ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--beige);
+      padding: 0 var(--space-xl);
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(53,69,102,0.06);
+    }
+
+    .nav-brand {
+      color: var(--navy);
+      font-weight: 300;
+      font-size: 15px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-brand span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--space-lg);
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--navy);
+      opacity: 0.6;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    /* ── HERO SECTION ── */
+    .hero {
+      margin-top: 56px;
+      position: relative;
+      overflow: hidden;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 750px;
+      padding: var(--space-4xl) var(--space-xl);
+    }
+
+    .hero-label {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: 0.5;
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero-title {
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 300;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      margin-bottom: var(--space-md);
+    }
+
+    .gold-line {
+      display: inline;
+      background-image: linear-gradient(var(--gold), var(--gold));
+      background-size: 100% 2px;
+      background-position: 0 90%;
+      background-repeat: no-repeat;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--navy);
+      opacity: 0.7;
+      max-width: 520px;
+      margin: 0 auto;
+      margin-top: var(--space-sm);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: var(--space-sm);
+      justify-content: center;
+      margin-top: var(--space-xl);
+      flex-wrap: wrap;
+    }
+
+    .hero-version {
+      margin-top: var(--space-xl);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+      opacity: 0.35;
+    }
+
+    /* ── VARIATION SHOWCASE ── */
+    .variation-section {
+      padding: var(--space-3xl) var(--space-xl);
+      background: var(--white);
+    }
+
+    .variation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .variation-card {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .variation-card .var-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .variation-card .var-content {
+      position: relative;
+      z-index: 2;
+      padding: var(--space-xl);
+      max-width: 400px;
+    }
+
+    .variation-card .var-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: 0.5;
+      margin-bottom: var(--space-sm);
+    }
+
+    .variation-card .var-title {
+      font-size: clamp(24px, 2.5vw, 34px);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--navy);
+      margin-bottom: var(--space-sm);
+    }
+
+    .variation-card .var-sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--navy);
+      opacity: 0.65;
+      line-height: 1.7;
+      margin-bottom: var(--space-md);
+    }
+
+    .variation-card .var-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .var-tag {
+      position: absolute;
+      top: var(--space-sm);
+      left: var(--space-sm);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      background: rgba(255,255,255,0.7);
+      color: var(--navy);
+      backdrop-filter: blur(4px);
+      z-index: 3;
+    }
+
+    /* ── TABLE OF CONTENTS ── */
+    .toc {
+      background: var(--beige);
+      padding: var(--space-3xl) var(--space-xl);
+    }
+
+    .toc-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .toc-title {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: var(--space-xl);
+      text-align: center;
+    }
+
+    .toc-list {
+      list-style: none;
+      counter-reset: toc;
+    }
+
+    .toc-list li {
+      counter-increment: toc;
+      border-bottom: 1px solid rgba(53,69,102,0.08);
+    }
+
+    .toc-list a {
+      display: flex;
+      align-items: center;
+      padding: 18px 0;
+      text-decoration: none;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      transition: color 0.3s ease;
+    }
+
+    .toc-list a::before {
+      content: counter(toc, decimal-leading-zero);
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--taupe);
+      width: 40px;
+      flex-shrink: 0;
+      letter-spacing: 0.05em;
+    }
+
+    .toc-list a::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(53,69,102,0.08);
+      margin: 0 var(--space-sm);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .toc-list a .toc-arrow {
+      font-size: 14px;
+      color: var(--taupe);
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .toc-list a:hover { color: var(--gold); }
+    .toc-list a:hover::after { opacity: 1; }
+    .toc-list a:hover .toc-arrow {
+      color: var(--gold);
+      transform: translateX(4px);
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: var(--space-3xl) var(--space-xl);
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: var(--space-sm);
+      text-align: center;
+    }
+
+    .section-heading {
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 300;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      text-align: center;
+      color: var(--navy);
+      margin-bottom: var(--space-sm);
+    }
+
+    .section-subheading {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--navy);
+      opacity: 0.6;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto var(--space-2xl);
+      line-height: 1.7;
+    }
+
+    /* Alternating backgrounds — only beige and white */
+    .bg-beige { background: var(--beige); }
+    .bg-white { background: var(--white); }
+
+    /* ── COLOR PALETTE ── */
+    .palette-group {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .palette-group-title {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: var(--space-md);
+    }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .color-card {
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 2px 16px rgba(53,69,102,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .color-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(53,69,102,0.1);
+    }
+
+    .color-swatch {
+      height: 110px;
+      position: relative;
+    }
+
+    .color-swatch .hex-overlay {
+      position: absolute;
+      bottom: 10px;
+      right: 12px;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.85);
+      color: var(--navy);
+      backdrop-filter: blur(4px);
+    }
+
+    .color-swatch .hex-overlay.on-dark {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+
+    .color-info {
+      padding: 16px;
+    }
+
+    .color-name {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .color-role {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .color-usage {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--taupe);
+      line-height: 1.5;
+    }
+
+    /* Contrast reference */
+    .contrast-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .contrast-item {
+      border-radius: 8px;
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 100px;
+      justify-content: flex-end;
+    }
+
+    .contrast-sample {
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    .contrast-ratio {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .type-specimen {
+      margin-bottom: var(--space-2xl);
+      padding-bottom: var(--space-2xl);
+      border-bottom: 1px solid rgba(53,69,102,0.06);
+    }
+
+    .type-specimen:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .type-meta {
+      display: flex;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    .type-tag {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      padding: 5px 14px;
+      border: 1px solid var(--beige);
+      border-radius: 100px;
+    }
+
+    .type-tag.gold {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .type-demo-display {
+      font-size: clamp(36px, 4.5vw, 56px);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--navy);
+    }
+
+    .type-demo-h2 {
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: -0.005em;
+      color: var(--navy);
+    }
+
+    .type-demo-h3 {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--navy);
+    }
+
+    .type-demo-body {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--navy);
+      opacity: 0.75;
+      max-width: 650px;
+    }
+
+    .type-demo-caption {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+
+    .type-demo-button-text {
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+
+    /* Weight restriction */
+    .weight-notice {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+
+    .weight-allowed, .weight-forbidden {
+      padding: var(--space-md);
+      border-radius: 8px;
+    }
+
+    .weight-allowed {
+      background: rgba(223,177,96,0.06);
+      border: 1px solid rgba(223,177,96,0.15);
+    }
+
+    .weight-forbidden {
+      background: var(--cream);
+      border: 1px solid rgba(53,69,102,0.06);
+    }
+
+    .weight-list-title {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-sm);
+    }
+
+    .weight-allowed .weight-list-title { color: var(--gold); }
+    .weight-forbidden .weight-list-title { color: var(--taupe); }
+
+    .weight-list {
+      list-style: none;
+    }
+
+    .weight-list li {
+      font-size: 14px;
+      padding: 6px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+    }
+
+    .weight-list li .check { color: var(--gold); font-size: 14px; }
+    .weight-list li .cross { color: var(--taupe); font-size: 14px; }
+
+    .weight-list li.forbidden {
+      color: var(--taupe);
+      text-decoration: line-through;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 32px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #2a3752;
+      box-shadow: 0 4px 20px rgba(53,69,102,0.2);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--navy);
+      border: 1px solid var(--navy);
+    }
+
+    .btn-secondary:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--navy);
+      padding: 13px 4px;
+      position: relative;
+    }
+
+    .btn-ghost::after {
+      content: '';
+      position: absolute;
+      bottom: 9px;
+      left: 4px;
+      right: 4px;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-ghost:hover::after { transform: scaleX(1); }
+
+    .btn-sm {
+      font-size: 11px;
+      padding: 10px 22px;
+    }
+
+    .button-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-lg);
+      align-items: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .button-demo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .button-label {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: var(--space-xs);
+    }
+
+    /* ── COMPONENTS ── */
+    .component-showcase {
+      display: grid;
+      gap: var(--space-xl);
+    }
+
+    .component-block {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: var(--space-xl);
+    }
+
+    .bg-beige .component-block {
+      background: var(--white);
+    }
+
+    .component-title {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: var(--space-lg);
+    }
+
+    /* Product card */
+    .demo-card {
+      max-width: 260px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 4px 24px rgba(53,69,102,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .demo-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(53,69,102,0.1);
+    }
+
+    .demo-card-image {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--sand) 0%, var(--beige) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .demo-card-image span {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: 0.3;
+    }
+
+    .demo-card-content { padding: var(--space-md); }
+
+    .demo-card-title {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .demo-card-price {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--taupe);
+    }
+
+    /* FAQ */
+    .demo-faq { max-width: 600px; }
+
+    .faq-item { border-bottom: 1px solid var(--beige); }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--navy);
+      transition: color 0.3s ease;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 0.01em;
+    }
+
+    .faq-question:hover { color: var(--gold); }
+
+    .faq-chevron {
+      transition: transform 0.3s ease;
+      color: var(--taupe);
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-left: var(--space-sm);
+    }
+
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+      padding-bottom: 20px;
+    }
+
+    .faq-answer p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--navy);
+      opacity: 0.7;
+      line-height: 1.7;
+    }
+
+    /* Announcement bar */
+    .demo-announcement {
+      background: var(--beige);
+      padding: 12px var(--space-md);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+      border-radius: 6px;
+      margin-bottom: var(--space-md);
+    }
+
+    .demo-announcement a {
+      color: var(--navy);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+    }
+
+    /* Nav bar demo */
+    .demo-nav {
+      background: var(--beige);
+      padding: 16px var(--space-md);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .demo-nav-brand {
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .demo-nav-links {
+      display: flex;
+      gap: var(--space-md);
+      list-style: none;
+    }
+
+    .demo-nav-links li {
+      color: var(--navy);
+      opacity: 0.55;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+
+    /* USP bar */
+    .demo-usp {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+      text-align: center;
+      padding: var(--space-lg) 0;
+    }
+
+    .usp-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .usp-icon {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--beige);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--navy);
+    }
+
+    .usp-title {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--navy);
+    }
+
+    .usp-text {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--taupe);
+      line-height: 1.5;
+    }
+
+    /* ── EMPHASIS ── */
+    .emphasis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .emphasis-card {
+      background: var(--white);
+      padding: var(--space-lg);
+      border-radius: 10px;
+    }
+
+    .bg-white .emphasis-card {
+      background: var(--cream);
+    }
+
+    .emphasis-card-title {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: var(--space-sm);
+    }
+
+    .emphasis-example {
+      font-size: 22px;
+      font-weight: 300;
+      line-height: 1.4;
+      color: var(--navy);
+      margin-bottom: var(--space-sm);
+    }
+
+    .emphasis-description {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--taupe);
+      line-height: 1.6;
+    }
+
+    /* ── SPACING ── */
+    .spacing-visual {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-xl);
+    }
+
+    .spacing-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .spacing-bar {
+      height: 32px;
+      background: linear-gradient(90deg, var(--gold), var(--sand));
+      border-radius: 4px;
+      transition: transform 0.3s ease;
+    }
+
+    .spacing-bar:hover { transform: scaleX(1.02); }
+
+    .spacing-label {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--navy);
+      min-width: 80px;
+      flex-shrink: 0;
+    }
+
+    .spacing-value {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--taupe);
+      min-width: 50px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* ── DO / DON'T ── */
+    .do-dont-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+    }
+
+    .do-column, .dont-column {
+      padding: var(--space-lg);
+      border-radius: 10px;
+    }
+
+    .do-column {
+      background: rgba(223,177,96,0.06);
+      border: 1px solid rgba(223,177,96,0.15);
+    }
+
+    .dont-column {
+      background: var(--cream);
+      border: 1px solid rgba(53,69,102,0.06);
+    }
+
+    .do-column h4, .dont-column h4 {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-md);
+    }
+
+    .do-column h4 { color: var(--gold); }
+    .dont-column h4 { color: var(--taupe); }
+
+    .do-list, .dont-list { list-style: none; }
+
+    .do-list li, .dont-list li {
+      font-size: 14px;
+      font-weight: 300;
+      padding: 8px 0;
+      padding-left: 24px;
+      position: relative;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    .dont-list li { opacity: 0.65; }
+
+    .do-list li::before {
+      content: '+';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+    .dont-list li::before {
+      content: '\2013';
+      position: absolute;
+      left: 0;
+      color: var(--taupe);
+      font-weight: 400;
+    }
+
+    /* ── VOICE GRID ── */
+    .voice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid rgba(53,69,102,0.08);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: var(--space-xl);
+    }
+
+    .voice-col-header {
+      padding: 16px var(--space-md);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .voice-col-header.we-are {
+      background: rgba(223,177,96,0.06);
+      color: var(--gold);
+      border-bottom: 1px solid rgba(53,69,102,0.06);
+      border-right: 1px solid rgba(53,69,102,0.06);
+    }
+
+    .voice-col-header.we-arent {
+      background: var(--cream);
+      color: var(--taupe);
+      border-bottom: 1px solid rgba(53,69,102,0.06);
+    }
+
+    .voice-cell {
+      padding: 14px var(--space-md);
+      font-size: 15px;
+      border-bottom: 1px solid rgba(53,69,102,0.04);
+    }
+
+    .voice-cell:nth-last-child(-n+2) { border-bottom: none; }
+
+    .voice-cell.positive {
+      font-weight: 400;
+      color: var(--navy);
+      border-right: 1px solid rgba(53,69,102,0.06);
+    }
+
+    .voice-cell.negative {
+      font-weight: 300;
+      color: var(--taupe);
+    }
+
+    /* ── COPY EXAMPLES ── */
+    .copy-examples {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .copy-example {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: var(--space-md);
+      align-items: start;
+      padding-bottom: var(--space-lg);
+      border-bottom: 1px solid rgba(53,69,102,0.06);
+    }
+
+    .copy-example:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .copy-verdict {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 0;
+    }
+
+    .copy-verdict.yes { color: var(--gold); }
+    .copy-verdict.no { color: var(--taupe); }
+
+    .copy-text {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .copy-text.good { color: var(--navy); }
+    .copy-text.bad { color: var(--taupe); text-decoration: line-through; }
+
+    /* ── IMAGERY ── */
+    .image-direction-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+
+    .image-card {
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .image-placeholder {
+      aspect-ratio: 3/4;
+      display: flex;
+      align-items: flex-end;
+      padding: var(--space-md);
+    }
+
+    .image-placeholder.warm {
+      background: linear-gradient(160deg, var(--sand) 0%, var(--beige) 60%, var(--cream) 100%);
+    }
+
+    .image-placeholder.skin {
+      background: linear-gradient(160deg, #c4a882 0%, var(--beige) 50%, #e8d5c4 100%);
+    }
+
+    .image-placeholder.clinical {
+      background: linear-gradient(160deg, var(--navy) 0%, #4a5f82 60%, var(--sand) 100%);
+    }
+
+    .image-tag {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+      background: rgba(255,255,255,0.85);
+      color: var(--navy);
+      backdrop-filter: blur(4px);
+    }
+
+    /* ── COPY PATTERN DEMO ── */
+    .pattern-demo {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: var(--space-xl) var(--space-xl) var(--space-2xl);
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .bg-beige .pattern-demo { background: var(--white); }
+
+    .pattern-demo .pattern-label {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: var(--space-sm);
+    }
+
+    .pattern-demo .pattern-heading {
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--navy);
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .pattern-demo .pattern-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--navy);
+      opacity: 0.6;
+      line-height: 1.6;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .pattern-annotation {
+      position: absolute;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      white-space: nowrap;
+    }
+
+    .pattern-annotation::before {
+      content: '';
+      position: absolute;
+      background: var(--beige);
+    }
+
+    .pa-caption { top: 38px; right: -110px; }
+    .pa-caption::before { width: 40px; height: 1px; top: 50%; left: -48px; }
+    .pa-heading { top: 78px; right: -110px; }
+    .pa-heading::before { width: 40px; height: 1px; top: 50%; left: -48px; }
+    .pa-subheading { top: 120px; right: -130px; }
+    .pa-subheading::before { width: 40px; height: 1px; top: 50%; left: -48px; }
+
+    /* ── FOOTER ── */
+    .guidelines-footer {
+      background: var(--beige);
+      padding: var(--space-3xl) var(--space-xl) var(--space-xl);
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: var(--space-md);
+    }
+
+    .footer-brand span { color: var(--gold); }
+
+    .footer-tagline {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--navy);
+      opacity: 0.45;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+      margin-bottom: var(--space-xl);
+    }
+
+    .footer-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto var(--space-lg);
+      opacity: 0.5;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--navy);
+      opacity: 0.3;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .variation-grid { grid-template-columns: 1fr; }
+      .weight-notice { grid-template-columns: 1fr; }
+      .do-dont-grid { grid-template-columns: 1fr; }
+      .voice-grid { grid-template-columns: 1fr; }
+      .voice-col-header.we-are { border-right: none; }
+      .voice-cell.positive { border-right: none; }
+      .image-direction-grid { grid-template-columns: 1fr; }
+      .demo-usp { grid-template-columns: repeat(2, 1fr); }
+      .emphasis-grid { grid-template-columns: 1fr; }
+      .contrast-grid { grid-template-columns: 1fr; }
+      .copy-example { grid-template-columns: 1fr; }
+      .pattern-annotation { display: none; }
+      .palette-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <a href="#" class="nav-brand">Blooming <span>Skin</span></a>
+    <ul class="nav-links">
+      <li><a href="#hero-variations">Hero</a></li>
+      <li><a href="#colors">Colors</a></li>
+      <li><a href="#typography">Typography</a></li>
+      <li><a href="#spacing">Spacing</a></li>
+      <li><a href="#components">Components</a></li>
+      <li><a href="#voice">Voice</a></li>
+      <li><a href="#imagery">Imagery</a></li>
+      <li><a href="#rules">Rules</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO — Background Variation 1 -->
+  <section class="hero">
+    <div class="hero-bg" style="background-image:url('Assets/background.png');"></div>
+    <div class="hero-inner">
+      <p class="hero-label">Brand Guidelines</p>
+      <h1 class="hero-title">
+        Pele com aspeto cuidado.<br>
+        Não <span class="gold-line">"corrigida"</span>.
+      </h1>
+      <p class="hero-subtitle">
+        Advanced beauty and wellness treatments designed for those who value long-term skin health over short-term fixes.
+      </p>
+      <div class="hero-buttons">
+        <a href="#" class="btn btn-primary">Shop by Concern</a>
+        <a href="#" class="btn btn-secondary">Get a Personalized Skin Plan</a>
+      </div>
+      <p class="hero-version">Version 1.1 &middot; March 2026</p>
+    </div>
+  </section>
+
+  <!-- HERO VARIATIONS -->
+  <section id="hero-variations" class="variation-section">
+    <div class="section-inner">
+      <p class="section-label reveal">Hero Variations</p>
+      <h2 class="section-heading reveal">Background Options</h2>
+      <p class="section-subheading reveal">
+        Two branded backgrounds available for hero sections. Navy text maintains AAA contrast on both warm surfaces.
+      </p>
+
+      <div class="variation-grid reveal">
+        <!-- Variation 1 -->
+        <div class="variation-card">
+          <div class="var-bg" style="background-image:url('Assets/background.png');"></div>
+          <span class="var-tag">background.png</span>
+          <div class="var-content">
+            <p class="var-label">Variação 1</p>
+            <h3 class="var-title">Pele com aspeto cuidado. Não <span class="gold-line">"corrigida"</span>.</h3>
+            <p class="var-sub">Tratamentos avançados de beleza e bem-estar para quem valoriza a saúde da pele a longo prazo.</p>
+            <div class="var-buttons">
+              <a href="#" class="btn btn-primary btn-sm">Comprar por Preocupação</a>
+              <a href="#" class="btn btn-secondary btn-sm">Plano Personalizado</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Variation 2 -->
+        <div class="variation-card">
+          <div class="var-bg" style="background-image:url('Assets/BG 2.png');"></div>
+          <span class="var-tag">BG 2.png</span>
+          <div class="var-content">
+            <p class="var-label">Variação 2</p>
+            <h3 class="var-title">Todas as peles merecem cuidados <span class="gold-line">excecionais</span>.</h3>
+            <p class="var-sub">O cuidado de excelência que a sua pele merece — acessível, guiado e sem compromissos.</p>
+            <div class="var-buttons">
+              <a href="#" class="btn btn-primary btn-sm">Explorar Cuidados</a>
+              <a href="#" class="btn btn-secondary btn-sm">Fale com Cosmetologista</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLE OF CONTENTS -->
+  <section class="toc">
+    <div class="toc-inner reveal">
+      <p class="toc-title">Contents</p>
+      <ol class="toc-list">
+        <li><a href="#colors">Color Palette <span class="toc-arrow">&rarr;</span></a></li>
+        <li><a href="#typography">Typography <span class="toc-arrow">&rarr;</span></a></li>
+        <li><a href="#emphasis">Emphasis Without Weight <span class="toc-arrow">&rarr;</span></a></li>
+        <li><a href="#spacing">Spacing System <span class="toc-arrow">&rarr;</span></a></li>
+        <li><a href="#components">UI Components <span class="toc-arrow">&rarr;</span></a></li>
+        <li><a href="#copy-pattern">Copy Pattern <span class="toc-arrow">&rarr;</span></a></li>
+        <li><a href="#voice">Voice &amp; Tone <span class="toc-arrow">&rarr;</span></a></li>
+        <li><a href="#imagery">Imagery Direction <span class="toc-arrow">&rarr;</span></a></li>
+        <li><a href="#rules">Do's &amp; Don'ts <span class="toc-arrow">&rarr;</span></a></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 01. COLOR PALETTE -->
+  <section id="colors" class="section bg-white">
+    <div class="section-inner">
+      <p class="section-label reveal">01</p>
+      <h2 class="section-heading reveal">Color Palette</h2>
+      <p class="section-subheading reveal">
+        Standardized to a beige + white alternating system. Navy is used exclusively for text. Gold for accents only.
+      </p>
+
+      <div class="palette-group reveal">
+        <p class="palette-group-title">Text</p>
+        <div class="palette-grid">
+          <div class="color-card">
+            <div class="color-swatch" style="background:#354566;">
+              <span class="hex-overlay on-dark">#354566</span>
+            </div>
+            <div class="color-info">
+              <p class="color-role">Text only</p>
+              <p class="color-name">Navy</p>
+              <p class="color-usage">All text — headings, body, nav, buttons. Never as a background.</p>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background:#8C7A6B;">
+              <span class="hex-overlay on-dark">#8C7A6B</span>
+            </div>
+            <div class="color-info">
+              <p class="color-role">Secondary text</p>
+              <p class="color-name">Taupe</p>
+              <p class="color-usage">Captions, labels, muted text. AAA on white (4.54:1).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="palette-group reveal">
+        <p class="palette-group-title">Backgrounds (Alternating Pair)</p>
+        <div class="palette-grid">
+          <div class="color-card">
+            <div class="color-swatch" style="background:#E6DAD0;">
+              <span class="hex-overlay">#E6DAD0</span>
+            </div>
+            <div class="color-info">
+              <p class="color-role">Background A</p>
+              <p class="color-name">Beige</p>
+              <p class="color-usage">Warm sections, nav bar, footer, announcement bar.</p>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background:#FFFFFF;border:1px solid #E6DAD0;">
+              <span class="hex-overlay">#FFFFFF</span>
+            </div>
+            <div class="color-info">
+              <p class="color-role">Background B</p>
+              <p class="color-name">White</p>
+              <p class="color-usage">Clean sections, cards on beige, form fields.</p>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background:#F5F0EB;">
+              <span class="hex-overlay">#F5F0EB</span>
+            </div>
+            <div class="color-info">
+              <p class="color-role">Soft alternative</p>
+              <p class="color-name">Cream</p>
+              <p class="color-usage">Cards on white sections, subtle containers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="palette-group reveal">
+        <p class="palette-group-title">Accent</p>
+        <div class="palette-grid">
+          <div class="color-card">
+            <div class="color-swatch" style="background:#DFB160;">
+              <span class="hex-overlay">#DFB160</span>
+            </div>
+            <div class="color-info">
+              <p class="color-role">Decorative only</p>
+              <p class="color-name">Gold</p>
+              <p class="color-usage">Underlines, section labels, hover accents. Never for text or fills.</p>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background:#D6B68F;">
+              <span class="hex-overlay">#D6B68F</span>
+            </div>
+            <div class="color-info">
+              <p class="color-role">Bridge tone</p>
+              <p class="color-name">Sand</p>
+              <p class="color-usage">Borders, dividers, image overlays, gradient transitions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contrast reference -->
+      <div class="reveal" style="margin-top:var(--space-xl);">
+        <p class="palette-group-title">AAA Contrast Reference</p>
+        <div class="contrast-grid">
+          <div class="contrast-item" style="background:#FFFFFF;color:#354566;border:1px solid #E6DAD0;">
+            <span class="contrast-sample">Navy on White</span>
+            <span class="contrast-ratio">9.5 : 1 &middot; AAA Pass</span>
+          </div>
+          <div class="contrast-item" style="background:#E6DAD0;color:#354566;">
+            <span class="contrast-sample">Navy on Beige</span>
+            <span class="contrast-ratio">5.8 : 1 &middot; AA / AAA (large)</span>
+          </div>
+          <div class="contrast-item" style="background:#FFFFFF;color:#8C7A6B;border:1px solid #E6DAD0;">
+            <span class="contrast-sample">Taupe on White</span>
+            <span class="contrast-ratio">4.54 : 1 &middot; AA Pass</span>
+          </div>
+          <div class="contrast-item" style="background:#E6DAD0;color:#354566;">
+            <span class="contrast-sample" style="background-image:linear-gradient(var(--gold),var(--gold));background-size:100% 2px;background-position:0 90%;background-repeat:no-repeat;">Gold accent on Beige</span>
+            <span class="contrast-ratio">Decorative only &middot; no text</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Usage rules -->
+      <div class="do-dont-grid reveal" style="margin-top:var(--space-xl);">
+        <div class="do-column">
+          <h4>Color Rules</h4>
+          <ul class="do-list">
+            <li>Navy (#354566) for ALL text — headings, body, nav, buttons</li>
+            <li>Beige + White alternate as section backgrounds</li>
+            <li>Gold for underlines, labels, and hover only</li>
+            <li>Cream for cards sitting on white sections</li>
+            <li>Sand for borders and dividers</li>
+          </ul>
+        </div>
+        <div class="dont-column">
+          <h4>Never</h4>
+          <ul class="dont-list">
+            <li>Navy as a background fill (removed from nav/footer)</li>
+            <li>Gold as text color or large fill</li>
+            <li>Pure black (#000) anywhere</li>
+            <li>Cold blue-white combinations</li>
+            <li>More than 3 colors per section</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02. TYPOGRAPHY -->
+  <section id="typography" class="section bg-beige">
+    <div class="section-inner">
+      <p class="section-label reveal">02</p>
+      <h2 class="section-heading reveal">Typography</h2>
+      <p class="section-subheading reveal">
+        Poppins is the sole typeface. Light, Regular, and Medium weights only. Navy is the only text color.
+      </p>
+
+      <div class="type-specimen reveal">
+        <div class="type-meta">
+          <span class="type-tag gold">Display / Hero</span>
+          <span class="type-tag">Light 300</span>
+          <span class="type-tag">48 &ndash; 56px</span>
+        </div>
+        <p class="type-demo-display">Pele com aspeto cuidado.<br>Não "corrigida".</p>
+      </div>
+
+      <div class="type-specimen reveal">
+        <div class="type-meta">
+          <span class="type-tag gold">Section Heading / H2</span>
+          <span class="type-tag">Regular 400</span>
+          <span class="type-tag">32 &ndash; 40px</span>
+        </div>
+        <p class="type-demo-h2">Soluções adaptadas ao estado atual da sua pele</p>
+      </div>
+
+      <div class="type-specimen reveal">
+        <div class="type-meta">
+          <span class="type-tag gold">Sub-Heading / H3</span>
+          <span class="type-tag">Medium 500</span>
+          <span class="type-tag">22 &ndash; 26px</span>
+        </div>
+        <p class="type-demo-h3">Resultados E Prazos</p>
+      </div>
+
+      <div class="type-specimen reveal">
+        <div class="type-meta">
+          <span class="type-tag gold">Body</span>
+          <span class="type-tag">Light 300</span>
+          <span class="type-tag">16 &ndash; 18px</span>
+        </div>
+        <p class="type-demo-body">A Blooming Skin oferece cuidados de rosto e corpo não invasivos, combinando tecnologia comprovada com orientação profissional para promover a saúde da pele, a confiança e o bem-estar.</p>
+      </div>
+
+      <div class="type-specimen reveal">
+        <div class="type-meta">
+          <span class="type-tag gold">Caption / Label</span>
+          <span class="type-tag">Regular 400</span>
+          <span class="type-tag">12 &ndash; 14px &middot; Uppercase</span>
+        </div>
+        <p class="type-demo-caption">A nossa visão &middot; Resultados reais &middot; Orientação</p>
+      </div>
+
+      <div class="type-specimen reveal">
+        <div class="type-meta">
+          <span class="type-tag gold">Button</span>
+          <span class="type-tag">Regular 400</span>
+          <span class="type-tag">13 &ndash; 14px &middot; Uppercase</span>
+        </div>
+        <p class="type-demo-button-text">Explorar cuidados do rosto</p>
+      </div>
+
+      <!-- Weight restriction -->
+      <div class="weight-notice reveal">
+        <div class="weight-allowed">
+          <p class="weight-list-title">Allowed</p>
+          <ul class="weight-list">
+            <li><span class="check">&#10003;</span> <span style="font-weight:300;">Light (300)</span></li>
+            <li><span class="check">&#10003;</span> <span style="font-weight:400;">Regular (400)</span></li>
+            <li><span class="check">&#10003;</span> <span style="font-weight:500;">Medium (500)</span></li>
+          </ul>
+        </div>
+        <div class="weight-forbidden">
+          <p class="weight-list-title">Not Allowed</p>
+          <ul class="weight-list">
+            <li class="forbidden"><span class="cross">&#10005;</span> Semi-Bold (600)</li>
+            <li class="forbidden"><span class="cross">&#10005;</span> Bold (700)</li>
+            <li class="forbidden"><span class="cross">&#10005;</span> Any Italic style</li>
+            <li class="forbidden"><span class="cross">&#10005;</span> Bold Italic</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03. EMPHASIS WITHOUT WEIGHT -->
+  <section id="emphasis" class="section bg-white">
+    <div class="section-inner">
+      <p class="section-label reveal">03</p>
+      <h2 class="section-heading reveal">Emphasis Without Weight</h2>
+      <p class="section-subheading reveal">
+        How to create hierarchy and draw attention without bold or italic.
+      </p>
+
+      <div class="emphasis-grid reveal">
+        <div class="emphasis-card">
+          <p class="emphasis-card-title">Gold Underline</p>
+          <p class="emphasis-example">Resultados visíveis <span class="gold-line">e reais</span></p>
+          <p class="emphasis-description">A 2px gold line at the baseline highlights key words. The signature emphasis technique.</p>
+        </div>
+        <div class="emphasis-card">
+          <p class="emphasis-card-title">Size Contrast</p>
+          <p class="emphasis-example" style="font-size:32px;">Pele real.<br><span style="font-size:18px;opacity:0.6;">Melhorias reais.</span></p>
+          <p class="emphasis-description">Scale difference creates natural hierarchy. Larger text commands attention.</p>
+        </div>
+        <div class="emphasis-card">
+          <p class="emphasis-card-title">Weight Stepping</p>
+          <p class="emphasis-example"><span style="font-weight:500;font-size:18px;">Tratamento</span><br><span style="font-weight:300;font-size:16px;opacity:0.65;">O que este tratamento faz pela sua pele?</span></p>
+          <p class="emphasis-description">Medium (500) for labels, Light (300) for content beneath.</p>
+        </div>
+        <div class="emphasis-card">
+          <p class="emphasis-card-title">Color Contrast</p>
+          <p class="emphasis-example"><span style="color:var(--navy);">Orientação</span> <span style="color:var(--taupe);">para decisões informadas</span></p>
+          <p class="emphasis-description">Navy for the anchor word, taupe for supporting text.</p>
+        </div>
+        <div class="emphasis-card">
+          <p class="emphasis-card-title">Letter-Spacing</p>
+          <p class="emphasis-example"><span style="font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:var(--taupe);">a nossa visão</span></p>
+          <p class="emphasis-description">Wide letter-spacing + uppercase + small size = section labels.</p>
+        </div>
+        <div class="emphasis-card">
+          <p class="emphasis-card-title">Whitespace</p>
+          <div style="padding:24px 0 16px;border-top:1px solid var(--beige);margin-top:8px;">
+            <p style="font-size:22px;font-weight:300;color:var(--navy);">A single line, given space, speaks louder.</p>
+          </div>
+          <p class="emphasis-description">Generous padding and isolation make any text important.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04. SPACING -->
+  <section id="spacing" class="section bg-beige">
+    <div class="section-inner">
+      <p class="section-label reveal">04</p>
+      <h2 class="section-heading reveal">Spacing System</h2>
+      <p class="section-subheading reveal">
+        Built on an 8px grid. Generous whitespace communicates calm and care.
+      </p>
+
+      <div class="spacing-visual reveal">
+        <div class="spacing-row">
+          <span class="spacing-label">space-xs</span>
+          <div class="spacing-bar" style="width:8px;"></div>
+          <span class="spacing-value">8px</span>
+        </div>
+        <div class="spacing-row">
+          <span class="spacing-label">space-sm</span>
+          <div class="spacing-bar" style="width:16px;"></div>
+          <span class="spacing-value">16px</span>
+        </div>
+        <div class="spacing-row">
+          <span class="spacing-label">space-md</span>
+          <div class="spacing-bar" style="width:24px;"></div>
+          <span class="spacing-value">24px</span>
+        </div>
+        <div class="spacing-row">
+          <span class="spacing-label">space-lg</span>
+          <div class="spacing-bar" style="width:48px;"></div>
+          <span class="spacing-value">32px</span>
+        </div>
+        <div class="spacing-row">
+          <span class="spacing-label">space-xl</span>
+          <div class="spacing-bar" style="width:72px;"></div>
+          <span class="spacing-value">48px</span>
+        </div>
+        <div class="spacing-row">
+          <span class="spacing-label">space-2xl</span>
+          <div class="spacing-bar" style="width:96px;"></div>
+          <span class="spacing-value">64px</span>
+        </div>
+        <div class="spacing-row">
+          <span class="spacing-label">space-3xl</span>
+          <div class="spacing-bar" style="width:144px;"></div>
+          <span class="spacing-value">96px</span>
+        </div>
+        <div class="spacing-row">
+          <span class="spacing-label">space-4xl</span>
+          <div class="spacing-bar" style="width:210px;"></div>
+          <span class="spacing-value">140px</span>
+        </div>
+      </div>
+
+      <div class="do-dont-grid reveal" style="margin-top:var(--space-xl);">
+        <div class="do-column">
+          <h4>Section Spacing</h4>
+          <ul class="do-list">
+            <li>Section padding: 80 &ndash; 120px (desktop)</li>
+            <li>Heading to subheading: 12 &ndash; 16px</li>
+            <li>Subheading to content: 32 &ndash; 40px</li>
+            <li>Grid item gaps: 24 &ndash; 32px</li>
+            <li>Card internal padding: 24 &ndash; 32px</li>
+          </ul>
+        </div>
+        <div class="do-column">
+          <h4>Layout Widths</h4>
+          <ul class="do-list">
+            <li>Page container: max 1440px</li>
+            <li>Text content: max 720 &ndash; 800px</li>
+            <li>Hero text area: max 600 &ndash; 650px</li>
+            <li>Full-bleed: 100vw (nav, hero, footer)</li>
+            <li>Grid: 3 or 4 columns</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05. UI COMPONENTS -->
+  <section id="components" class="section bg-white">
+    <div class="section-inner">
+      <p class="section-label reveal">05</p>
+      <h2 class="section-heading reveal">UI Components</h2>
+      <p class="section-subheading reveal">
+        All components use navy text, beige/white backgrounds, and gold accents only.
+      </p>
+
+      <div class="component-showcase">
+        <!-- Buttons -->
+        <div class="component-block reveal">
+          <p class="component-title">Buttons</p>
+          <div class="button-grid">
+            <div class="button-demo">
+              <p class="button-label">Primary</p>
+              <button class="btn btn-primary">Explore Face Care</button>
+            </div>
+            <div class="button-demo">
+              <p class="button-label">Secondary</p>
+              <button class="btn btn-secondary">Book a Consultation</button>
+            </div>
+            <div class="button-demo">
+              <p class="button-label">Ghost</p>
+              <button class="btn btn-ghost">Learn more</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="component-block reveal">
+          <p class="component-title">Navigation Bar (Beige)</p>
+          <div class="demo-announcement">
+            Precisa de ajuda para escolher? <a href="#">Fale com uma cosmetologista</a>
+          </div>
+          <div class="demo-nav">
+            <span class="demo-nav-brand">Blooming Skin</span>
+            <ul class="demo-nav-links">
+              <li>Tratamentos</li>
+              <li>Loja</li>
+              <li>Guia de Pele</li>
+              <li>Sobre</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Product Cards -->
+        <div class="component-block reveal">
+          <p class="component-title">Product Card</p>
+          <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;">
+            <div class="demo-card">
+              <div class="demo-card-image"><span>Product Image</span></div>
+              <div class="demo-card-content">
+                <p class="demo-card-title">Face Lifter Gold</p>
+                <p class="demo-card-price">&euro;149,00</p>
+              </div>
+            </div>
+            <div class="demo-card">
+              <div class="demo-card-image" style="background:linear-gradient(135deg, #c4a882, var(--beige));"><span>Product Image</span></div>
+              <div class="demo-card-content">
+                <p class="demo-card-title">S-Cleaner</p>
+                <p class="demo-card-price">&euro;89,00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="component-block reveal">
+          <p class="component-title">FAQ Accordion</p>
+          <div class="demo-faq">
+            <div class="faq-item open">
+              <button class="faq-question">
+                O que este tratamento realmente faz pela minha pele?
+                <span class="faq-chevron">&#8964;</span>
+              </button>
+              <div class="faq-answer">
+                <p>Cada tratamento combina tecnologia avançada com ingredientes ativos para resolver preocupações específicas da pele, promovendo resultados visíveis e duradouros sem procedimentos invasivos.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                Como funciona a tecnologia, em termos simplistas?
+                <span class="faq-chevron">&#8964;</span>
+              </button>
+              <div class="faq-answer">
+                <p>Os nossos dispositivos utilizam radiofrequência, LED e estimulação para ativar os processos naturais de renovação da pele.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                Quando começarei a ver resultados visíveis?
+                <span class="faq-chevron">&#8964;</span>
+              </button>
+              <div class="faq-answer">
+                <p>A maioria dos clientes nota melhorias após a primeira sessão, com resultados progressivos ao longo do tratamento.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- USP Bar -->
+        <div class="component-block reveal">
+          <p class="component-title">USP Bar</p>
+          <div class="demo-usp">
+            <div class="usp-item">
+              <div class="usp-icon">&#9733;</div>
+              <p class="usp-title">Ativos de Alta Performance</p>
+              <p class="usp-text">Eficácia clinicamente comprovada</p>
+            </div>
+            <div class="usp-item">
+              <div class="usp-icon">&#9829;</div>
+              <p class="usp-title">Adequado a Todos os Tipos</p>
+              <p class="usp-text">Tolerância e segurança garantidas</p>
+            </div>
+            <div class="usp-item">
+              <div class="usp-icon">&#10003;</div>
+              <p class="usp-title">Uma Marca de Confiança</p>
+              <p class="usp-text">Milhares de clientes satisfeitos</p>
+            </div>
+            <div class="usp-item">
+              <div class="usp-icon">&#9740;</div>
+              <p class="usp-title">Pagamento Seguro</p>
+              <p class="usp-text">Proteção total dos seus dados</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06. COPY PATTERN -->
+  <section id="copy-pattern" class="section bg-beige">
+    <div class="section-inner">
+      <p class="section-label reveal">06</p>
+      <h2 class="section-heading reveal">Copy Pattern</h2>
+      <p class="section-subheading reveal">
+        Every section follows: caption (what this is), heading (why it matters), subheading (what you'll find).
+      </p>
+
+      <div class="reveal" style="position:relative;max-width:700px;margin:0 auto;">
+        <div class="pattern-demo">
+          <p class="pattern-label">&#183; a nossa visão</p>
+          <p class="pattern-heading">Estamos a construir um futuro em que os cuidados estéticos são compreendidos de forma <span class="gold-line">holística</span></p>
+          <p class="pattern-sub">Acessível a todos, intimidador para ninguém. Onde a saúde da pele e o bem-estar caminham lado a lado.</p>
+          <span class="pattern-annotation pa-caption">Caption &middot; gold &middot; uppercase</span>
+          <span class="pattern-annotation pa-heading">Heading &middot; Light 300</span>
+          <span class="pattern-annotation pa-subheading">Subheading &middot; Light 300</span>
+        </div>
+      </div>
+
+      <div class="copy-examples reveal" style="margin-top:var(--space-2xl);">
+        <p class="palette-group-title">Writing Principles</p>
+        <div class="copy-example">
+          <span class="copy-verdict yes">Yes</span>
+          <p class="copy-text good">Firmer, more defined skin — without needles or recovery time.</p>
+        </div>
+        <div class="copy-example">
+          <span class="copy-verdict no">Avoid</span>
+          <p class="copy-text bad">Radiofrequency combined with electro-stimulation technology.</p>
+        </div>
+        <div class="copy-example">
+          <span class="copy-verdict yes">Yes</span>
+          <p class="copy-text good">Not sure what's right for you? You don't have to decide alone.</p>
+        </div>
+        <div class="copy-example">
+          <span class="copy-verdict no">Avoid</span>
+          <p class="copy-text bad">Buy now and see results!</p>
+        </div>
+        <div class="copy-example">
+          <span class="copy-verdict yes">Yes</span>
+          <p class="copy-text good">Explore Face Care</p>
+        </div>
+        <div class="copy-example">
+          <span class="copy-verdict no">Avoid</span>
+          <p class="copy-text bad">Limited Time Offer! Don't Miss Out!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07. VOICE & TONE -->
+  <section id="voice" class="section bg-white">
+    <div class="section-inner">
+      <p class="section-label reveal">07</p>
+      <h2 class="section-heading reveal">Voice &amp; Tone</h2>
+      <p class="section-subheading reveal">
+        Confident, not arrogant. Scientific, not cold. Every word should make the reader feel supported.
+      </p>
+
+      <div class="voice-grid reveal">
+        <div class="voice-col-header we-are">We Are</div>
+        <div class="voice-col-header we-arent">We Are Not</div>
+        <div class="voice-cell positive">Confident</div>
+        <div class="voice-cell negative">Arrogant</div>
+        <div class="voice-cell positive">Scientific</div>
+        <div class="voice-cell negative">Cold</div>
+        <div class="voice-cell positive">Luxurious</div>
+        <div class="voice-cell negative">Exclusive</div>
+        <div class="voice-cell positive">Personal</div>
+        <div class="voice-cell negative">Informal</div>
+        <div class="voice-cell positive">Poetic</div>
+        <div class="voice-cell negative">Vague</div>
+        <div class="voice-cell positive">Guiding</div>
+        <div class="voice-cell negative">Pushy</div>
+        <div class="voice-cell positive">Warm</div>
+        <div class="voice-cell negative">Casual</div>
+        <div class="voice-cell positive">Reassuring</div>
+        <div class="voice-cell negative">Patronizing</div>
+      </div>
+
+      <div class="reveal" style="margin-top:var(--space-xl);">
+        <p class="palette-group-title">CTA Language (Bilingual)</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-md);">
+          <div class="emphasis-card">
+            <p class="emphasis-card-title">Hero</p>
+            <p style="font-size:14px;font-weight:400;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy);margin-bottom:8px;">Shop by Concern</p>
+            <p style="font-size:13px;font-weight:300;color:var(--taupe);">Comprar por Preocupação</p>
+          </div>
+          <div class="emphasis-card">
+            <p class="emphasis-card-title">Treatment</p>
+            <p style="font-size:14px;font-weight:400;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy);margin-bottom:8px;">Explore Face Care</p>
+            <p style="font-size:13px;font-weight:300;color:var(--taupe);">Explorar Cuidados do Rosto</p>
+          </div>
+          <div class="emphasis-card">
+            <p class="emphasis-card-title">Consultation</p>
+            <p style="font-size:14px;font-weight:400;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy);margin-bottom:8px;">Talk to a Cosmetologist</p>
+            <p style="font-size:13px;font-weight:300;color:var(--taupe);">Fale com uma Cosmetologista</p>
+          </div>
+          <div class="emphasis-card">
+            <p class="emphasis-card-title">Results</p>
+            <p style="font-size:14px;font-weight:400;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy);margin-bottom:8px;">Real results — see more</p>
+            <p style="font-size:13px;font-weight:300;color:var(--taupe);">Resultados reais — ver mais</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08. IMAGERY -->
+  <section id="imagery" class="section bg-beige">
+    <div class="section-inner">
+      <p class="section-label reveal">08</p>
+      <h2 class="section-heading reveal">Imagery Direction</h2>
+      <p class="section-subheading reveal">
+        Warm, soft-lit, natural. Golden undertones, real people, never clinical-cold.
+      </p>
+
+      <div class="image-direction-grid reveal">
+        <div class="image-card">
+          <div class="image-placeholder warm">
+            <span class="image-tag">Hero / Lifestyle</span>
+          </div>
+        </div>
+        <div class="image-card">
+          <div class="image-placeholder skin">
+            <span class="image-tag">Product / Flat-Lay</span>
+          </div>
+        </div>
+        <div class="image-card">
+          <div class="image-placeholder clinical">
+            <span class="image-tag">Treatment / Clinic</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="do-dont-grid reveal" style="margin-top:var(--space-xl);">
+        <div class="do-column">
+          <h4>Photography Do's</h4>
+          <ul class="do-list">
+            <li>Warm, soft natural lighting</li>
+            <li>Golden / amber color grading</li>
+            <li>Real clients, diverse skin types</li>
+            <li>Close-up skin textures</li>
+            <li>Consistent before/after framing</li>
+          </ul>
+        </div>
+        <div class="dont-column">
+          <h4>Photography Don'ts</h4>
+          <ul class="dont-list">
+            <li>Harsh clinical lighting</li>
+            <li>Cool blue-white tones</li>
+            <li>Generic stock perfection</li>
+            <li>Over-retouched skin</li>
+            <li>Cold clinical environments</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09. DO'S & DON'TS -->
+  <section id="rules" class="section bg-white">
+    <div class="section-inner">
+      <p class="section-label reveal">09</p>
+      <h2 class="section-heading reveal">Do's &amp; Don'ts</h2>
+      <p class="section-subheading reveal">
+        The non-negotiable rules that protect the brand's identity.
+      </p>
+
+      <div class="do-dont-grid reveal">
+        <div class="do-column">
+          <h4>Always</h4>
+          <ul class="do-list">
+            <li>Navy (#354566) for all text</li>
+            <li>Beige + White alternating backgrounds</li>
+            <li>Poppins Light, Regular, or Medium only</li>
+            <li>Gold underline accents for emphasis</li>
+            <li>Generous whitespace between sections</li>
+            <li>Cosmetologist CTA on every page</li>
+            <li>Benefit-first, then rational proof</li>
+            <li>Real results from real clients</li>
+          </ul>
+        </div>
+        <div class="dont-column">
+          <h4>Never</h4>
+          <ul class="dont-list">
+            <li>Bold or italic in any context</li>
+            <li>Navy as a background color</li>
+            <li>Gold as text or large fill</li>
+            <li>Aggressive sales language</li>
+            <li>Cold, clinical color schemes</li>
+            <li>Generic stock photography</li>
+            <li>Body text smaller than 16px</li>
+            <li>Countdown timers or urgency tactics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="guidelines-footer">
+    <p class="footer-brand">Blooming <span>Skin</span></p>
+    <p class="footer-tagline">O cuidado de excelência que a sua pele merece.</p>
+    <div class="footer-divider"></div>
+    <p class="footer-copy">Brand Guidelines v1.1 &middot; March 2026 &middot; Confidential</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // FAQ toggle
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>
